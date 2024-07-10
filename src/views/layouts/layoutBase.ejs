@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/js/bootstrap.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Plantitas</title>
+</head>
+
+<body>
+    <nav class="navbar color-navarsito">
+        <div class="container-fluid">
+            <a href="/inicio" class="navbar-brand">Planta-te 🌵</a>
+            <form class="d-flex" role="search">
+                <input class="form-control  me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-primary" type="submit">🔍</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <%- body %>
+    </div>
+
+    <br/>
+    <footer class="text-center text-lg-start color_footersito">
+        <!-- Copyright -->
+        <div class="text-center p-3">
+        © 2024 Copyright:
+        <a class="text-body" href="/inicio">Planta-Te 🌵</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</body>
+</html>

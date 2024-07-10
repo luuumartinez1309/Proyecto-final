@@ -1,0 +1,85 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-3 fondo-color">
+            <h1>Editar Tipo</h1>
+            <form action="/tipos/<%= tipo.id %>/edit" method="POST">
+                <div class="form-group">
+                    <label for="tipo">Tipo:</label>
+                    <input type="text" id="tipo" name="tipo" class="form-control" value="<%= tipo.tipo %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" class="form-control" required><%= tipo.descripcion %></textarea>
+                </div>
+                <div class="form-group">
+                    <br/>
+                    <h4>Taxonomía</h4>
+                    <label for="dominio">Dominio:</label>
+                    <input type="text" id="dominio" name="dominio" class="form-control" value="<%= tipo.dominio %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="reino">Reino:</label>
+                    <input type="text" id="reino" name="reino" class="form-control" value="<%= tipo.reino %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="division">División:</label>
+                    <input type="text" id="division" name="division" class="form-control" value="<%= tipo.division %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="clase">Clase:</label>
+                    <input type="text" id="clase" name="clase" class="form-control" value="<%= tipo.clase %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="orden">Orden:</label>
+                    <input type="text" id="orden" name="orden" class="form-control" value="<%= tipo.orden %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="familia">Familia:</label>
+                    <input type="text" id="familia" name="familia" class="form-control" value="<%= tipo.familia %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="genero">Género:</label>
+                    <input type="text" id="genero" name="genero" class="form-control" value="<%= tipo.genero %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="especie">Especie:</label>
+                    <input type="text" id="especie" name="especie" class="form-control" value="<%= tipo.especie %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="ciclo_vida">Ciclo de Vida:</label>
+                    <select class="form-select" id="ciclo_vida" name="ciclo_vida" aria-label="Default select example" required>
+                        <option value="Anual" <%= tipo.ciclo_vida === 'Anual' ? 'selected' : '' %>>Anual</option>
+                        <option value="Bienal" <%= tipo.ciclo_vida === 'Bienal' ? 'selected' : '' %>>Bienal</option>
+                        <option value="Perennes" <%= tipo.ciclo_vida === 'Perennes' ? 'selected' : '' %>>Perennes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adaptacion_ambiente">Adaptación al Ambiente:</label>
+                    <select class="form-select" id="adaptacion_ambiente" name="adaptacion_ambiente" aria-label="Default select example" required>
+                        <option value="Xerófitas" <%= tipo.adaptacion_ambiente === 'Xerófitas' ? 'selected' : '' %>>Xerófitas</option>
+                        <option value="Hidrófitas" <%= tipo.adaptacion_ambiente === 'Hidrófitas' ? 'selected' : '' %>>Hidrófitas</option>
+                        <option value="Halófilas" <%= tipo.adaptacion_ambiente === 'Halófilas' ? 'selected' : '' %>>Halófilas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="origen">Origen:</label>
+                    <input type="text" id="origen" name="origen" class="form-control" value="<%= tipo.origen %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado_conservacion">Estado de Conservación:</label>
+                    <select class="form-select" id="estado_conservacion" name="estado_conservacion" aria-label="Default select example" required>
+                        <option value="Preocupación Menor (LC)" <%= tipo.estado_conservacion === 'Preocupación Menor (LC)' ? 'selected' : '' %>>Preocupación Menor (LC)</option>
+                        <option value="Casi Amenazada (NT)" <%= tipo.estado_conservacion === 'Casi Amenazada (NT)' ? 'selected' : '' %>>Casi Amenazada (NT)</option>
+                        <option value="Vulnerable (VU)" <%= tipo.estado_conservacion === 'Vulnerable (VU)' ? 'selected' : '' %>>Vulnerable (VU)</option>
+                        <option value="En Peligro (EN)" <%= tipo.estado_conservacion === 'En Peligro (EN)' ? 'selected' : '' %>>En Peligro (EN)</option>
+                        <option value="En Peligro Crítico (CR)" <%= tipo.estado_conservacion === 'En Peligro Crítico (CR)' ? 'selected' : '' %>>En Peligro Crítico (CR)</option>
+                        <option value="Extinta en Estado Silvestre (EW)" <%= tipo.estado_conservacion === 'Extinta en Estado Silvestre (EW)' ? 'selected' : '' %>>Extinta en Estado Silvestre (EW)</option>
+                        <option value="Extinta (EX)" <%= tipo.estado_conservacion === 'Extinta (EX)' ? 'selected' : '' %>>Extinta (EX)</option>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+</div>

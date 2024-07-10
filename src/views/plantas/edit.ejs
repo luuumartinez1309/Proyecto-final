@@ -1,0 +1,52 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-3 fondo-color">
+            <h1>Editar Planta</h1>
+            <form action="/plantas/<%= planta.id %>/edit" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" value="<%= planta.nombre %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo_reproduccion">Tipo de Reproducción:</label>
+                    <input type="text" id="tipo_reproduccion" name="tipo_reproduccion" class="form-control" value="<%= planta.tipo_reproduccion %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="ambiente_crecimiento">Ambiente de Crecimiento:</label>
+                    <select id="ambiente_crecimiento" name="ambiente_crecimiento" class="form-control" required>
+                        <option value="true" <%= planta.ambiente_crecimiento ? 'selected' : '' %>>Acuático</option>
+                        <option value="false" <%= !planta.ambiente_crecimiento ? 'selected' : '' %>>Terrestre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="frutos">Produce Frutos:</label>
+                    <select id="frutos" name="frutos" class="form-control" required>
+                        <option value="true" <%= planta.frutos ? 'selected' : '' %>>Sí</option>
+                        <option value="false" <%= !planta.frutos ? 'selected' : '' %>>No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="flores">Produce Flores:</label>
+                    <select id="flores" name="flores" class="form-control" required>
+                        <option value="true" <%= planta.flores ? 'selected' : '' %>>Sí</option>
+                        <option value="false" <%= !planta.flores ? 'selected' : '' %>>No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tipo_iluminacion">Tipo de Iluminación:</label>
+                    <input type="text" id="tipo_iluminacion" name="tipo_iluminacion" class="form-control" value="<%= planta.tipo_iluminacion %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipo_id">Tipo de Planta:</label>
+                    <select id="tipo_id" name="tipo_id" class="form-control" required>
+                        <% tipos.forEach(tipo => { %>
+                            <option value="<%= tipo.id %>" <%= planta.tipo_id == tipo.id ? 'selected' : '' %>><%= tipo.tipo %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+</div>

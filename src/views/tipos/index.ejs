@@ -1,0 +1,136 @@
+<div class="container">
+    <div class="row">
+        <div class="col-1 ">
+            
+        </div>
+
+        <div class="col-5 fondo-color">
+            <h1 class="titulitos text-center">Crear Nuevo Tipo</h1>
+            <form action="/tipos" method="POST">
+                <div class="form-group">
+                    <label for="tipo">Tipo:</label>
+                    <input type="text" id="tipo" name="tipo" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" name="descripcion" class="form-control" required></textarea>
+                </div>
+                <div class="form-group">
+                    <br/>
+                    <h4>Taxonomía</h4>
+                    <div class="mb-3 row">
+                        <label for="dominio" class="col-sm-2 col-form-label fw-bold">Dominio</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="dominio" name="dominio" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="reino" class="col-sm-2 col-form-label fw-bold">Reino</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="reino" name="reino" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="division" class="col-sm-2 col-form-label fw-bold">División</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="division" name="division" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="clase" class="col-sm-2 col-form-label fw-bold">Clase</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="clase" name="clase" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="orden" class="col-sm-2 col-form-label fw-bold">Orden</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="orden" name="orden" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="familia" class="col-sm-2 col-form-label fw-bold">Familia</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="familia" name="familia" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="genero" class="col-sm-2 col-form-label fw-bold">Género</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="genero" name="genero" required>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="especie" class="col-sm-2 col-form-label fw-bold">Especie</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="especie" name="especie" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="ciclo_vida">Ciclo de vida:</label>
+                    <select class="form-select" id="ciclo_vida" name="ciclo_vida" aria-label="Default select example" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="Anual">Anual</option>
+                        <option value="Bienal">Bienal</option>
+                        <option value="Perennes">Perennes</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="adaptacion_ambiente">Adaptación al ambiente:</label>
+                    <select class="form-select" id="adaptacion_ambiente" name="adaptacion_ambiente" aria-label="Default select example">
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="Xerófitas">Xerófitas</option>
+                        <option value="Hidrófitas">Hidrófitas</option>
+                        <option value="Halófilas">Halófilas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="origen">Origen:</label>
+                    <input type="text" id="origen" name="origen" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado_conservacion">Estado de conservación:</label>
+                    <select class="form-select" id="estado_conservacion" name="estado_conservacion" aria-label="Default select example">
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="Preocupación Menor (LC)">Preocupación Menor (LC)</option>
+                        <option value="Casi Amenazada (NT)">Casi Amenazada (NT)</option>
+                        <option value="Vulnerable (VU)">Vulnerable (VU)</option>
+                        <option value="En Peligro (EN)">En Peligro (EN)</option>
+                        <option value="En Peligro Crítico (CR)">En Peligro Crítico (CR)</option>
+                        <option value="Extinta en Estado Silvestre (EW)">Extinta en Estado Silvestre (EW)</option>
+                        <option value="Extinta (EX)">Extinta (EX)</option>
+                    </select>
+                </div>
+                <br>
+                <div class="row text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-success">Crear Tipo</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-5 fondo-color">
+            <h1 class="titulitos text-center">Lista de Tipos</h1>
+            <ul class="list-group">
+                <% tipos.forEach(tipo => { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= tipo.tipo %> - <%= tipo.descripcion %>
+                        <div>
+                            <form action="/tipos/<%= tipo.id %>/edit" method="GET" style="display: inline;">
+                                <button type="submit" class="btn btn-warning btn-sm me-2">Editar</button>
+                            </form>
+                            <form action="/tipos/delete/<%= tipo.id %>" method="POST" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+
+        <div class="col-1">
+            
+        </div>
+    </div>
+</div>

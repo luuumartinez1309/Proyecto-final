@@ -1,0 +1,28 @@
+body {
+    background-image: url("./imagenFondo.jpg");
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fondo-color{
+    background-color: #55FFC5;
+}
+
+.fondo-color2{
+    background-color: #91f9d7;
+}
+
+.titulitos {
+    font-family: "Oswald", sans-serif;
+}
+
+.advertencia {
+    font-family: "Anton SC", sans-serif;
+}
+
+.color-navarsito {
+    background-color: #55FFC5;
+}
+
+.color_footersito {
+    background-color: #55FFC5;
+}

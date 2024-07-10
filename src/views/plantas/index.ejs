@@ -1,0 +1,109 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-1"></div>
+
+        <div class="col-5 fondo-color">
+            <h1 class="titulitos text-center">Crear Nueva Planta</h1>
+            <form action="/plantas" method="POST">
+
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" required>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="tipo_reproduccion">Tipo de Reproducción:</label>
+                    <select id="tipo_reproduccion" name="tipo_reproduccion" class="form-control" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="Angiospermas">Angiospermas</option>
+                        <option value="Gimnospermas">Gimnospermas</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="ambiente_crecimiento">Ambiente de crecimiento:</label>
+                    <select id="ambiente_crecimiento" name="ambiente_crecimiento" class="form-control" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="Xerófitas">Xerófitas</option>
+                        <option value="Hidrófitas">Hidrófitas</option>
+                        <option value="Halófilas">Halófilas</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="frutos">Produce Frutos:</label>
+                    <select id="frutos" name="frutos" class="form-control" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="flores">Produce Flores:</label>
+                    <select id="flores" name="flores" class="form-control" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="tipo_iluminacion">Tipo de Iluminación:</label>
+                    <select class="form-select" id="tipo_iluminacion" name="tipo_iluminacion" aria-label="Default select example" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <option value="Luz directa">Luz directa</option>
+                        <option value="Luz directa brillante">Luz directa brillante</option>
+                        <option value="Luz indirecta">Luz indirecta</option>
+                        <option value="Luz indirecta brillante">Luz indirecta brillante</option>
+                        <option value="Luz indirecta moderada">Luz indirecta moderada</option>
+                        <option value="Luz indirecta baja">Luz indirecta baja</option>
+                    </select>
+                </div>
+                <br>
+
+                <div class="form-group">
+                    <label for="tipo_id">Tipo de Planta:</label>
+                    <select class="form-select" id="tipo_id" name="tipo_id" required>
+                        <option selected>Selecciona una opción :D</option>
+                        <% tipos.forEach(tipo => { %>
+                            <option value="<%= tipo.id %>"><%= tipo.tipo %></option>
+                        <% }); %>
+                    </select>
+                </div>
+                <br>
+                <div class="row text-center">
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-success">Crear Planta</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-5 fondo-color">
+            <h1 class="titulitos text-center">Lista de Plantas</h1>
+            <ul class="list-group">
+                <% plantas.forEach(planta => { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <%= planta.nombre %>
+                        <div>
+                            <form action="/plantas/<%= planta.id %>/edit" method="GET" style="display: inline;">
+                                <button type="submit" class="btn btn-warning btn-sm me-2">Editar</button>
+                            </form>
+                            <form action="/plantas/delete/<%= planta.id %>" method="POST" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+
+        <div class="col-1"></div>
+    </div>
+</div>
